@@ -17,7 +17,7 @@ requires = [
 
 setup(
     name='bchelpers',
-    version='0.2.0',
+    version='0.3.0',
     description='Handy helpers to make botocore easier to use',
     long_description=open('README.md').read(),
     author='Mitch Garnaat',
