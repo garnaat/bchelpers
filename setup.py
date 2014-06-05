@@ -10,8 +10,8 @@ packages = [
 ]
 
 requires = [
-    'botocore>=0.35.0',
-    'jmespath>=0.3.1'
+    'botocore>=0.49.0',
+    'jmespath>=0.4.1'
 ]
 
 

@@ -34,12 +34,15 @@ class Region(object):
     """
 
     def __init__(self, region_name, profile=None):
-        self._session = botocore.session.get_session()
-        self._session.profile = profile
-        self._region_name = region_name
+        self.session = botocore.session.get_session()
+        self.session.profile = profile
+        self.region_name = region_name
 
     def __repr__(self):
-        return self._region_name
+        return self.region_name
+
+    def debug(self):
+        self.session.set_debug_logger()
 
     def get_service_endpoint(self, service_name):
         """
@@ -51,6 +54,6 @@ class Region(object):
         :param service_name: The name of the service you wish to
             connect to (e.g. ec2).
         """
-        service = self._session.get_service(service_name)
-        endpoint = service.get_endpoint(self._region_name)
+        service = self.session.get_service(service_name)
+        endpoint = service.get_endpoint(self.region_name)
         return ServiceEndpoint(self, service, endpoint)
